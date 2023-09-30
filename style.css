@@ -95,11 +95,13 @@ main section {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  background-color: var(--primary-color__accent);
 }
 
 .bx-search {
   color: var(--secondary-color);
   font-size: 1.4rem;
+  margin-right: .052em;
 }
 
 #searchInput {
@@ -109,12 +111,13 @@ main section {
   color: var(--white);
   font-size: 1.1rem;
   width: 70%;
+  padding: .56em 0;
 }
 
 #searchInput::placeholder {
   color: var(--offwhite);
   text-transform: capitalize;
-  font-size: 1rem;
+  font-size: 1.03rem;
   font-family: var(--ff-primary);
 }
 
