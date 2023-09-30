@@ -229,6 +229,9 @@ main section {
     font-size: 1.11rem;
 }
 
+.github-extra:last-child{
+  opacity: .57;
+}
 /* Animation to fade */
 .fadeIn {
   animation: 0.3s fade forwards;
