@@ -11,6 +11,9 @@ const githubExtras = profileInfo.querySelector('.github-extras')
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const username = searchInput.value.trim();
+   if (username === "") {
+     alert("Input Username");
+   }
   getUserDetails(username);
 });
 
@@ -23,8 +26,9 @@ async function getUserDetails(username) {
     if (!response.ok) {
       throw new Error("Network response was not okay");
     }
+    
     const data = await response.json();
-    console.log(data);
+    // assign data to respective variables
     const login = data.login;
     const blog = data.blog;
     const followers = data.followers;
@@ -63,6 +67,7 @@ async function getUserDetails(username) {
     `;   
     profileInfo.querySelector('.bio').innerText = `${bio}`
 
+   
     githubExtras.innerHTML = `
         <div class="github-extra">
             <p class='bx bxs-map'></p>
@@ -77,16 +82,12 @@ async function getUserDetails(username) {
             <p>${twitterHandle}</p>
         </div>
     `;
-   
     profile.style["display"] = "block";
-    profile.style["height"] = "400px";
+    profile.style["height"] = "350px";
     errorMsg.style["display"] = "none";
     errorMsg.classList.toggle("fadeIn");
     // What to display if any or the data is null
-    if (location === null || bio === null) {
-      return;
-    }
-    
+  
   } catch (error) {
     errorMsg.innerHTML = `
         <img src="images/not.svg" alt="404 not found">
